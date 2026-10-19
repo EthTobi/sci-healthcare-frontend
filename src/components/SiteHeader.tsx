@@ -9,6 +9,7 @@ import { NavLink } from '@/components/ui';
 import { ConnectButton } from './ConnectButton';
 import { LowBandwidthToggle } from './LowBandwidthToggle';
 import { NetworkBadge } from './NetworkBadge';
+import { ThemeToggle } from './ThemeToggle';
 
 const LINKS = [
   { href: '/', label: 'Clinics' },
@@ -69,6 +70,7 @@ export function SiteHeader() {
 
         <div className="ml-auto flex flex-wrap items-center justify-end gap-1.5 sm:gap-2">
           <LowBandwidthToggle />
+          <ThemeToggle />
           <NetworkBadge />
           <ConnectButton />
           <button
