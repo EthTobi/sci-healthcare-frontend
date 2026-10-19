@@ -44,9 +44,9 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // suppressHydrationWarning: the theme init script sets data-theme before
+  // paint, which the server render cannot know (#10).
   return (
-    {/* suppressHydrationWarning: the theme init script sets data-theme
-        before paint, which the server render cannot know (#10). */}
     <html lang="en" suppressHydrationWarning>
       {/* Theme before paint (#10): stored override, else the OS setting. */}
       <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />

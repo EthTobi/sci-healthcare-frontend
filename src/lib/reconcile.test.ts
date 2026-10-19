@@ -68,9 +68,11 @@ describe('pollVoucherStatus', () => {
         return realSetTimeout(cb, 0, ...rest);
       }) as typeof setTimeout);
     try {
+      // NB: the loop runs until the wall-clock deadline, so the timeout
+      // must stay well under the 5s test timeout even with 0ms sleeps.
       await expect(
         pollVoucherStatus(() => Promise.resolve('Funded'), 'Claimed', {
-          timeoutMs: 5_000,
+          timeoutMs: 800,
           baseDelayMs: 100,
           maxDelayMs: 1_000,
         }),
